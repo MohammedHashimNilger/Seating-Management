@@ -1,0 +1,784 @@
+.spPageWrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    #eaf6ff 0%,   /* very light sky blue */
+    #f8fbff 40%,  /* white blend for depth */
+    #e0f3ff 100%  /* soft blue tint */
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.5s ease;
+  padding-bottom: 3rem; /* space for footer if any */
+}
+
+.spNavbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.spNavbar:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Title --- */
+.spNavbarTitle {
+  font-weight: 700;
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.spNavbarTitle:hover {
+  transform: scale(1.05);
+}
+
+/* --- Optional username --- */
+.spNavbarUser {
+  font-weight: 500;
+  margin-right: 1rem;
+  color: #4b5563;
+}
+
+/* --- Logout Button --- */
+.spLogoutBtn {
+  background: #e74c3c;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.spLogoutBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(231, 76, 60, 0.4);
+}
+
+.spLogoutBtn:active {
+  transform: scale(0.97);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .spNavbar {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .spNavbarTitle {
+    font-size: 1.4rem;
+  }
+
+  .spLogoutBtn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+.spDarkModeBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.35);
+  overflow: hidden;
+}
+
+/* --- Hover & Active States --- */
+.spDarkModeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.5);
+}
+
+.spDarkModeBtn:active {
+  transform: scale(0.96);
+}
+
+/* --- Light Mode Look --- */
+.spPageWrapper:not(.darkMode) .spDarkModeBtn {
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+}
+
+/* --- Dark Mode Look --- */
+.darkMode .spDarkModeBtn {
+  background: linear-gradient(90deg, #8e44ad, #2980b9);
+  box-shadow: 0 0 18px rgba(142, 68, 173, 0.4);
+}
+
+/* --- Optional Icon Style --- */
+.spDarkModeBtn span {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.spContainer {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 95%;
+  flex: 1;
+}
+
+.spHeader {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  background: linear-gradient(135deg, #3498db, #9b59b6);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: all 0.4s ease;
+}
+
+.spHeader:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.spHeader h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, #fff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .spHeader {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+
+  .spHeader h1 {
+    font-size: 1.8rem;
+  }
+
+  .spSubtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* --- Wider Card Container --- */
+.spCard {
+  background: #ffffff;
+  width: 90%; /* ✅ was max-width: 600px — now dynamic width */
+  max-width: 1100px; /* ✅ keeps it wide but not full screen */
+  margin: 2rem auto;
+  padding: 2rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.spCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* --- Form Layout --- */
+.spSearchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: nowrap; /* ✅ makes it stay horizontal */
+}
+
+/* --- Input Field --- */
+.spInput {
+  flex: 1;
+  min-width: 300px;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  border: 2px solid #d1d5db;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+.spInput:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+/* --- Button --- */
+.spSearchBtn {
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+  white-space: nowrap;
+}
+
+.spSearchBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(155, 89, 182, 0.4);
+}
+
+.spSearchBtn:active {
+  transform: scale(0.97);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .spCard {
+    width: 95%;
+    padding: 1.5rem 1rem;
+  }
+
+  .spSearchForm {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .spInput,
+  .spSearchBtn {
+    width: 100%;
+  }
+}
+
+
+.spErrorCard {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Wider Result Container --- */
+.spResultGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: #ffffff;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.spResultGrid:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* --- Student Name --- */
+.spStudentName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Info Items --- */
+.spInfoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.7rem;
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.spInfoItem:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.spInfoLabel {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+.spInfoValue {
+  font-weight: 500;
+  color: #111827;
+  font-size: 1rem;
+}
+
+/* --- Seat Badge --- */
+.spBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.spBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(155, 89, 182, 0.4);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .spResultGrid {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .spStudentName {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .spInfoItem {
+    justify-content: space-between;
+    margin: 0.5rem 0;
+  }
+
+  .spBadge {
+    align-self: center;
+    margin-top: 1.2rem;
+  }
+}
+
+/* === Main Container === */
+.spHallLayout {
+  background: #ffffff;
+  width: 95%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.spHallLayout:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* === Section Title === */
+.spHallTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === "Front" Indicator === */
+.spFrontIndicator {
+  display: inline-block;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  color: #fff;
+  padding: 0.5rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* === Grid Layout === */
+.spSeatGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Matches your 'cols' in JS */
+  gap: 0.8rem;
+  justify-content: center;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* === Base Seat Style === */
+.spSeat {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* === Empty Seat === */
+.spEmpty {
+  background: #f3f4f6;
+  border: 2px solid #e5e7eb;
+  color: #374151;
+}
+
+.spEmpty:hover {
+  background: #e0e7ff;
+  border-color: #c7d2fe;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.25);
+}
+
+/* === Student’s Seat (Highlighted) === */
+.spStudent {
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+  transform: scale(1.1);
+  animation: pulseSeat 1.8s infinite ease-in-out;
+}
+
+/* === Pulse Animation for Highlight === */
+@keyframes pulseSeat {
+  0% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(52, 152, 219, 0.6);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+  }
+}
+
+/* === Responsive Layout === */
+@media (max-width: 768px) {
+  .spHallLayout {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .spSeatGrid {
+    grid-template-columns: repeat(4, 1fr); /* fewer columns on mobile */
+    gap: 0.6rem;
+    max-width: 100%;
+  }
+
+  .spSeat {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .spFrontIndicator {
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+.spLegend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.spLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spLegendColor {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.25rem;
+  border: 1px solid #444;
+}
+
+.spInstructions {
+  background: #e0f2fe;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+  color: #1e3a8a;
+}
+
+.spInstructionsTitle {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.spInstructionList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.spInstructionItem {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   🌙 DARK MODE OVERRIDES (only active when .darkMode is applied)
+   ======================================== */
+
+.darkMode {
+  background: linear-gradient(135deg, #0a0f1a, #101826, #182235);
+  color: #f9fafb;
+}
+
+/* Navbar */
+.darkMode .spNavbar {
+  background: #111827;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.darkMode .spNavbarTitle {
+  background: linear-gradient(90deg, #9b59b6, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Header */
+.darkMode .spHeader {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #f9fafb;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.darkMode .spSubtitle {
+  color: #d1d5db;
+}
+
+/* Cards */
+.darkMode .spCard,
+.darkMode .spResultCard {
+  background: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #374151;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Input Field */
+.darkMode .spInput {
+  background: #111827;
+  border: 2px solid #374151;
+  color: #f1f5f9;
+}
+
+.darkMode .spInput:focus {
+  border-color: #9b59b6;
+  box-shadow: 0 0 0 4px rgba(155, 89, 182, 0.25);
+}
+
+/* Buttons */
+.darkMode .spSearchBtn {
+  background: linear-gradient(90deg, #9b59b6, #3498db);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.5);
+}
+
+.darkMode .spSearchBtn:hover,
+.darkMode .spLogoutBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(155, 89, 182, 0.6);
+}
+
+/* --- Dark Mode Toggle Button --- */
+.darkMode .spDarkModeBtn {
+  background: linear-gradient(90deg, #9b59b6, #3498db);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 18px rgba(155, 89, 182, 0.4);
+}
+
+.darkMode .spDarkModeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(155, 89, 182, 0.6);
+}
+
+/* Hall Layout */
+.darkMode .spHallLayout {
+  background: #111827;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+.darkMode .spHallTitle {
+  color: #9b59b6;
+}
+
+/* Seats */
+.darkMode .spSeatGrid {
+  background: transparent;
+}
+
+.darkMode .spSeat {
+  background: #1e293b;
+  border: 2px solid #334155;
+  color: #e5e7eb;
+}
+
+.darkMode .spStudent {
+  background: #9b59b6;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.7);
+}
+
+.darkMode .spEmpty {
+  background: #2b3444;
+  color: #9ca3af;
+}
+
+/* Legend */
+.darkMode .spLegendItem {
+  color: #e5e7eb;
+}
+
+.darkMode .spLegendColor {
+  border: 1px solid #475569;
+}
+
+/* Instructions */
+.darkMode .spInstructions {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
+.darkMode .spInstructions li {
+  color: #cbd5e1;
+}
+
+/* --- Result Card (Your Seat Allocation) --- */
+.darkMode .spResultCard {
+  background: #1e293b;
+  color: #f9fafb;
+  border: 1px solid #374151;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Student Name */
+.darkMode .spStudentName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #9b59b6, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.6rem;
+}
+
+/* Info Item Container */
+.darkMode .spInfoItem {
+  display: flex;
+  justify-content: space-between;
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.6rem;
+  color: #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.darkMode .spInfoItem:hover {
+  background: #1f2937;
+  border-color: #4b5563;
+}
+
+/* Labels and Values */
+.darkMode .spInfoLabel {
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.darkMode .spInfoValue {
+  color: #f9fafb;
+  font-weight: 500;
+}
+
+/* Badge */
+.darkMode .spBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #9b59b6, #3498db);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.4);
+  margin-top: 0.8rem;
+}
+
+/* Result Grid Layout */
+.darkMode .spResultGrid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  background-color: #161e36;
+}

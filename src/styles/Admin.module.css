@@ -1,0 +1,923 @@
+/* ------------------- Page Wrapper ------------------- */
+.pageWrapper {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e0e7ff, #ffffff 70%);
+  color: #1f2937;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 50px; /* extra space for content */
+}
+
+/* ------------------- Navbar ------------------- */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.navbarTitle {
+  font-weight: 700;
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbarUser {
+  font-weight: 500;
+  margin-right: 1rem;
+  color: #4b5563;
+}
+
+.btnLogout {
+  background: #e74c3c;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btnLogout:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(231, 76, 60, 0.4);
+}
+
+/* ------------------- Container & Sections ------------------- */
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------- Headings ------------------- */
+.cH1 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.cH2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-left: 5px solid #3498db;
+  padding-left: 12px;
+}
+
+/* ------------------- Forms ------------------- */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+.btnSubmit {
+  background: linear-gradient(90deg, #3498db, #9b59b6); /* green to blue gradient */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 10px;
+}
+
+.btnSubmit:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+}
+
+.btnSubmit:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btnSubmit:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+
+/* ------------------- CSV Upload ------------------- */
+/* ------------------- Bulk Upload Section ------------------- */
+.bulkUploadSection {
+  margin-top: 30px;
+  padding: 25px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bulkUploadSection:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.bulkUploadSection h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2937;
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+}
+
+/* Container for input + button */
+.csvUpload {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* File input styling */
+.csvFileInput {
+  flex: 1;
+  padding: 12px;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.csvFileInput:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+/* Style the upload button */
+.btnUpload {
+  background: linear-gradient(90deg, #3498db, #9b59b6);; 
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnUpload:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+.btnUpload:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .csvUpload {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .csvFileInput,
+  .btnUpload {
+    width: 100%;
+  }
+}
+
+
+/* ------------------- Records Table ------------------- */
+.recordsTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.recordsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.recordsTable th,
+.recordsTable td {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.recordsTable thead {
+  background: #f0f4ff;
+  font-weight: 600;
+}
+
+.recordsTable tbody tr:hover {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+/* ------------------- Room Layout ------------------- */
+/* ------------------- Room Layout Section ------------------- */
+.roomLayoutSection {
+  margin-top: 30px;
+  padding: 25px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roomLayoutSection:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.roomLayoutSection h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2937;
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+}
+
+/* Dropdown + Button container */
+.layoutViewer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.layoutViewer select {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.layoutViewer select:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+/* View Layout Button */
+.btnViewLayout {
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnViewLayout:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btnViewLayout:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Room layout grid */
+.roomLayout {
+  margin-top: 20px;
+}
+
+.seatGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.seat {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.seat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.seat.occupied {
+  background-color: #d1e7dd;
+  border-color: #10b981;
+  font-weight: 600;
+}
+
+.seat.empty {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+
+/* Placeholder messages */
+.noStudents,
+.selectRoom {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layoutViewer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .seatGrid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .seat {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .layoutViewer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .seat {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}
+
+/* ------------------- dark mode btn ------------------- */
+.btnToggleDark {
+  background: linear-gradient(90deg, #3498db, #9b59b6); /* orange gradient */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.btnToggleDark:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+.btnToggleDark:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 8px rgba(245, 158, 11, 0.3);
+}
+
+/* ------------------- dark mode ------------------- */
+
+.dark {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.dark .container {
+  background: #1f2937;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.dark .navbar {
+  background: #1f2937;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.dark .navbarUser, 
+.dark .cH1, 
+.dark .cH2 {
+  color: #e5e7eb;
+}
+
+.dark input, 
+.dark select {
+  background: #374151;
+  border: 1px solid #4b5563;
+  color: #e5e7eb;
+}
+
+.dark .btnSubmit,
+.dark .btnUpload,
+.dark .btnViewLayout {
+  color: #fff;
+}
+
+.dark .seat.occupied {
+  background-color: #064e3b;
+  border-color: #10b981;
+  color: #d1fae5;
+}
+
+.dark .seat.empty {
+  background-color: #581c1c;
+  border-color: #ef4444;
+  color: #fecaca;
+}
+
+/* ------------------- Dark Mode: Bulk Upload Section ------------------- */
+.dark .bulkUploadSection {
+  background: #1f2937; /* dark gray background */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  color: #e5e7eb; /* light text */
+}
+
+.dark .bulkUploadSection h2 {
+  color: #f59e0b; /* highlight heading in amber */
+  border-left-color: #3b82f6; /* keep accent border */
+}
+
+.dark .csvUpload {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dark .csvFileInput {
+  background: #374151; /* dark input background */
+  border: 1px solid #4b5563; /* darker border */
+  color: #e5e7eb; /* text color */
+}
+
+.dark .csvFileInput:hover {
+  border-color: #3b82f6; /* hover border accent */
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.dark .btnUpload {
+  background: linear-gradient(90deg, #10b981, #059669); /* green gradient */
+  color: #fff;
+}
+
+.dark .btnUpload:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+}
+
+.dark .btnUpload:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* ------------------- Dark Mode: Table Header ------------------- */
+.dark .recordsTable thead {
+  background: #374151; /* dark gray background */
+  color: #f3f4f6; /* light text */
+  font-weight: 600;
+  border-bottom: 1px solid #4b5563; /* subtle border for separation */
+}
+
+.dark .recordsTable th {
+  padding: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.dark .recordsTable tbody tr:hover {
+  background: rgba(59, 130, 246, 0.2); /* lighter hover effect */
+}
+
+/* ------------------- Dark Mode: Room Layout Section ------------------- */
+.dark .roomLayoutSection {
+  background: #1f2937; /* dark gray background */
+  color: #f3f4f6; /* light text */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark .roomLayoutSection h2 {
+  border-left: 4px solid #3b82f6;
+  color: #f3f4f6;
+}
+
+.dark .layoutViewer select {
+  background: #374151;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+}
+
+.dark .layoutViewer select:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.dark .btnViewLayout {
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  color: #f3f4f6;
+}
+
+.dark .roomLayout {
+  background: #111827;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.dark .seat {
+  background: #374151;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+}
+
+.dark .seat.occupied {
+  background-color: #065f46;
+  border-color: #10b981;
+  color: #d1fae5;
+}
+
+.dark .seat.empty {
+  background-color: #7f1d1d;
+  border-color: #ef4444;
+  color: #fee2e2;
+}
+
+.dark .noStudents,
+.dark .selectRoom {
+  color: #9ca3af;
+}
+
+/* 🌐 EXTRA MOBILE RESPONSIVENESS */
+
+/* For tablets (up to 992px) */
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .navbarTitle {
+    font-size: 1.4rem;
+  }
+
+  .btnLogout,
+  .btnToggleDark {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .btnSubmit {
+    width: 100%;
+  }
+
+  .recordsTable th,
+  .recordsTable td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+
+/* ------------------- Icon Styles ------------------- */
+
+/* Generic icon alignment for buttons and headings */
+button svg,
+h1 svg,
+h2 svg {
+  vertical-align: middle;
+  margin-right: 8px;
+  stroke-width: 2.2; /* slightly bolder for clarity */
+}
+
+/* Ensure icons match text color */
+.sp button svg,
+.sp h1 svg,
+.sp h2 svg,
+.navbar svg {
+  color: inherit;
+  stroke: currentColor;
+}
+
+/* Navbar icons (logout, dark/light toggle) */
+.navbar button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ------------------- Search Input with Icon ------------------- */
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 6px 10px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.searchWrapper:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+.searchWrapper svg {
+  color: #6b7280;
+  margin-right: 8px;
+}
+
+.searchWrapper input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.searchWrapper input::placeholder {
+  color: #9ca3af;
+}
+
+/* ------------------- Seat Icons ------------------- */
+.seat svg {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+/* Occupied vs Empty seat icons */
+.seat.occupied svg {
+  color: #10b981;
+}
+
+.seat.empty svg {
+  color: #ef4444;
+}
+
+/* ------------------- Dark Mode Adjustments for Icons ------------------- */
+.dark button svg,
+.dark h1 svg,
+.dark h2 svg {
+  color: #f3f4f6;
+}
+
+.dark .searchWrapper {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.dark .searchWrapper:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.dark .searchWrapper svg {
+  color: #9ca3af;
+}
+
+.dark .searchWrapper input {
+  color: #f3f4f6;
+}
+
+.dark .seat svg {
+  color: inherit;
+}
+
+/* Optional: smooth hover scale for icons in buttons */
+button:hover svg {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+
+/* For small tablets & large phones (up to 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbarTitle {
+    font-size: 1.3rem;
+  }
+
+  .navbarUser {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    margin: 10px;
+    padding: 16px;
+  }
+
+  .cH1 {
+    font-size: 1.8rem;
+  }
+
+  .cH2 {
+    font-size: 1.2rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  input, select {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .btnSubmit,
+  .btnUpload,
+  .btnViewLayout {
+    font-size: 0.95rem;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .recordsTableWrapper {
+    overflow-x: auto;
+  }
+
+  .recordsTable th,
+  .recordsTable td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .seatGrid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+  }
+
+  .seat {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}
+
+/* For phones (up to 480px) */
+@media (max-width: 480px) {
+  .pageWrapper {
+    padding-bottom: 30px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.6rem;
+  }
+
+  .navbarTitle {
+    font-size: 1.2rem;
+  }
+
+  .navbarUser {
+    margin-right: 0;
+    font-size: 0.85rem;
+  }
+
+  .btnLogout,
+  .btnToggleDark {
+    width: 100%;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .container {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .cH1 {
+    font-size: 1.5rem;
+  }
+
+  .cH2 {
+    font-size: 1.1rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .btnSubmit {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .bulkUploadSection,
+  .roomLayoutSection {
+    padding: 15px;
+  }
+
+  .csvUpload {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .csvFileInput,
+  .btnUpload {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .recordsTable th,
+  .recordsTable td {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .seatGrid {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+
+  .seat {
+    padding: 6px;
+    font-size: 0.75rem;
+  }
+
+  .btnViewLayout {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

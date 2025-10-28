@@ -1,0 +1,24 @@
+/* ✅ Global Reset — eliminates scrollbars & white gaps */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* disables scrolling */
+  box-sizing: border-box;
+  background: none;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Optional: make all elements inherit box-sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.signinPage, .signupPage {
+  overflow: hidden; /* 🚫 disable scroll only on these pages */
+  height: 100vh;
+}
+
