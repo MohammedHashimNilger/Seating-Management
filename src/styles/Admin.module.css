@@ -262,6 +262,34 @@ input:focus, select:focus {
   background: rgba(52, 152, 219, 0.1);
 }
 
+/* --- Scrollable Records Table --- */
+.recordsTableWrapper {
+  width: 100%;
+  overflow-x: auto; /* keep for small screens */
+  max-height: 400px; /* fixed height to allow vertical scroll */
+  overflow-y: auto;  /* enable vertical scrolling */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+/* Make the table header sticky for better usability */
+.recordsTable thead th {
+  position: sticky;
+  top: 0;
+  background: #f0f4ff;
+  z-index: 1;
+}
+
+/* Dark mode version */
+.dark .recordsTableWrapper {
+  border-color: #4b5563;
+}
+
+.dark .recordsTable thead th {
+  background: #374151;
+}
+
+
 /* ------------------- Room Layout ------------------- */
 /* ------------------- Room Layout Section ------------------- */
 .roomLayoutSection {
@@ -920,4 +948,81 @@ button:hover svg {
     font-size: 0.9rem;
     padding: 10px;
   }
+}
+
+.btnSmall {
+  background: #e0e7ff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 0 3px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnSmall:hover {
+  background: #c7d2fe;
+  transform: scale(1.05);
+}
+
+.dark .btnSmall {
+  background: #374151;
+  color: #f9fafb;
+}
+
+.dark .btnSmall:hover {
+  background: #4b5563;
+}
+
+.recordsTable input[type="text"],
+.recordsTable input[type="number"] {
+  width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #f9fafb;
+  color: #111827;
+  box-sizing: border-box;
+}
+
+.dark .recordsTable input[type="text"],
+.dark .recordsTable input[type="number"] {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  border-color: #374151;
+}
+
+.recordsTable th:last-child,
+.recordsTable td:last-child {
+  text-align: center;
+  min-width: 100px;
+}
+
+@media (max-width: 768px) {
+  .btnSmall {
+    padding: 3px 6px;
+    margin: 0 2px;
+  }
+
+  .recordsTable input[type="text"],
+  .recordsTable input[type="number"] {
+    font-size: 0.8rem;
+    padding: 3px 5px;
+  }
+}
+
+.btnSmall svg {
+  stroke-width: 2;
+}
+
+.btnSmall:nth-child(1) svg {
+  color: #2563eb;
+}
+
+.btnSmall:nth-child(2) svg {
+  color: #dc2626;
 }
